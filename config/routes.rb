@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :new, :show, :index]
   get '/sign_up', to: 'users#new'
   # root "events#index"
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/login', to: 'sessions#destroy'
 end
