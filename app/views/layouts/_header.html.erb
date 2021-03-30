@@ -1,10 +1,17 @@
-<nav class="navbar mb-2">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "Items", '#' %>
+<nav>
+  <div>
+    <div>
+      <%= link_to "Items", root_path%>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Sign up", sign_up_path %></li>
+    <% if logged_in? %>
+    <ul>
+      <li><%= link_to "Log out", logout_path%></li>
     </ul>
+    <% else %>
+    <ul>
+        <li><%= link_to "Log in", login_path %></li> 
+        <li><%= link_to "Sign up", sign_up_path %></li>
+      </ul>
+      <% end %>
   </div>
 </nav>
