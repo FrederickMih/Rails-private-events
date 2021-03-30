@@ -1,0 +1,10 @@
+<%= form_for @user do |form| %>
+ <% @user.errors.full_messages_for(:username).each do |message| %>
+      <div><%= message %></div>
+<% end %>
+ <%= form.label :username %>
+ <%= form.text_field :username %>
+  <%= tag(:br) %>
+  <%= tag(:br) %>
+ <%= form.submit  %>
+<% end %>
