@@ -17,8 +17,8 @@ end
       @user = User.new(user_params)
 
       if @user.save
-          @user = User.all
-          render :show
+          flash[:success] = "Welcome to the app!"
+          redirect_to @user
       else
           render :new
       end

@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(version: 2021_03_30_104314) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_events", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "event_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.datetime "created_at", precision: 6, null: false

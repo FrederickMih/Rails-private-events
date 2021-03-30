@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   # resources :user_events
   # resources :events
   resources :users, only: [:create, :new, :show, :index]
-  # get '/register', to: 'users#register'
+  get '/sign_up', to: 'users#new'
   # root "events#index"
 end
