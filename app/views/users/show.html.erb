@@ -1,6 +1,25 @@
-<h1>User <%= @user.id %></h1> 
+<h1>User <%= @user.id %> <%= @user.username %></h1> 
 
-<%= @user.username %>
 
+<% if @user.events.empty? %>
+  <h3> <%= @user.username %> Has no events coming up </h3>
+<% else %>
+  Number of events: <%= @events_count = @user.events.size %>
+  <% @events_count.each do |e| %>
+    <%= @current_event = @user.events.find(e) %>
+  <% end %>
+<% end %>
+
+
+
+
+<% %>
+<% %>
+<% %>
+<% %>
+<% %>
+
+<br>
+<br>
 <%= link_to 'New User', new_user_path %>
  <%= link_to "Sign up", sign_up_path %>
