@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
     has_many :events, dependent: :delete_all, inverse_of: 'creator'
 
-    has_many :attended_event, through: :event_users, source: :events, dependent: :delete_all
+    has_many :attended_events, through: :event_users, source: :events, dependent: :delete_all
 
     
 
