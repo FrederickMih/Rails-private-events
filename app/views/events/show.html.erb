@@ -1,6 +1,13 @@
 <h1>Event <%= @event.id %> <%= @event.creator.username %></h1> 
 
 <h2> <%= @event.description %> </h2>
+
+ <% @event.attendees.each do |attendant| %>
+      <tr>
+        <td><%= attendant.username %></td>
+      </tr>
+    <% end %>
+
 <% %>
 <% %>
 <% %>

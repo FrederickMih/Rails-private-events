@@ -5,6 +5,7 @@ class Event < ApplicationRecord
     validates :description, presence: true
 
     has_many :attendees, through: :event_users, source: :users, dependent: :delete_all
+    has_many :event_users
 
     
     
