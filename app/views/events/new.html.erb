@@ -1,0 +1,10 @@
+<%= form_for @event do |form| %>
+ 
+ <%# <%= render 'shared/error_messages' \%\> %>
+
+ <%= form.label :description %>
+ <%= form.text_area :description %>
+  <%= tag(:br) %>
+  <%= tag(:br) %>
+ <%= form.submit  %>
+<% end %>

@@ -4,9 +4,11 @@
 <% if @user.events.empty? %>
   <h3> <%= @user.username %> Has no events coming up </h3>
 <% else %>
-  Number of events: <%= @events_count = @user.events.size %>
-  <% @events_count.each do |e| %>
-    <%= @current_event = @user.events.find(e) %>
+  Number of events: <%=  @user.events.size %>
+  <br><br>
+  <% @all_events = @user.events %>
+  <% @all_events.each do |e| %>
+    <%= e.description %>
   <% end %>
 <% end %>
 
