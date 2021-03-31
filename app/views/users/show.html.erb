@@ -2,7 +2,7 @@
 
 
 <% if @user.events.empty? %>
-  <h3> <%= @user.username %> Didn't made any event </h3>
+  <h3> <%= @user.username %> Didn't make any event </h3>
 <% else %>
   Number of events mades: <%=  @user.events.size %>
   <br><br>
@@ -31,5 +31,5 @@
 
 <br>
 <br>
+<%= link_to 'New Event', new_event_path %> <br><br>
 <%= link_to 'New User', new_user_path %>
- <%= link_to "Sign up", sign_up_path %>
