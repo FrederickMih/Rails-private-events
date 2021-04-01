@@ -32,7 +32,8 @@ class EventsController < ApplicationController
 
   def update
     @event = current_user.events.find(params[:id])
-    if @event.update_attributes(item_params)
+    # @object.attributes = event_params
+    if @event.update event_params
       flash[:success] = "Event updated"
       redirect_to @event
     else
