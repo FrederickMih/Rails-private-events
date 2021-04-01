@@ -1,5 +1,8 @@
 <h1>Editing Event</h1>
 
+<%= link_to 'Show', @event %> <br>
+<%= link_to 'Back', events_path %>
+
 <%= form_for @event do |form| %>
  
  <%# <%= render 'shared/error_messages' \%\> %>
@@ -13,5 +16,3 @@
  <%= form.submit  %>
 <% end %>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
