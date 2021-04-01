@@ -1,13 +1,15 @@
 module EventHelper
 
     def event_option
-    content_tag(:h1, @event.creator.username )+
-      content_tag(:h1, @event.description)+
-      content_tag(:h1, @event.date)  do
+        content_tag(:p, @event.creator.id )+
+    content_tag(:p, @event.creator.username )+
+      content_tag(:p, @event.description)+
+       content_tag(:p,  time_tag( @event.date)) +
+      content_tag(:div, class: 'text-right')  do
         if current_user == @event.creator
 
-          (link_to 'Edit', edit_event_path) +
-            (link_to 'Delete',event_path, method: :delete, data: { confirm: 'Delete this event?' })
+          (link_to 'Edit', edit_event_path) + tag("br") + 
+            (link_to 'Delete',event_path(@event.id), method: :delete, data: { confirm: 'Delete this event?' })
 
         elsif @event.attendees.include?(current_user)
 

@@ -17,10 +17,20 @@
   <% end %>
 <% end %>
 
- <% @user.attended_events.each do |event| %>
+<h3> Upcoming Events <h3>
+ <% @user.attended_events.upcoming.each do |event| %>
       <tr>
+        <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.id %></td>
+        <td><%= event.date %></td>
+      </tr>
+  <% end %>
+
+<h3> Past Events <h3>
+ <% @user.attended_events.past.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.description %></td>
         <td><%= event.date %></td>
       </tr>
   <% end %>

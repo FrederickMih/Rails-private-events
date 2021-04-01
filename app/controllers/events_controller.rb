@@ -58,7 +58,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = current_user.events.find(params[:id])
+    @event = Event.find(params[:id])
     if @event
       @event.destroy
       flash[:success] = "Event removed"
