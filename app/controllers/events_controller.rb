@@ -40,6 +40,22 @@ class EventsController < ApplicationController
     end
   end
 
+  def visitor
+    @event = Event.find(params[:id])
+    if @event.attendees.include?(current_user)
+      redirect_to @event, notice: 'You are already on the list'
+    else
+      @event.attendees << current_user
+      redirect_to @event
+    end
+  end
+
+  def cancel_visitor
+    @event = Event.find(params[:id])
+    @event.attendees.delete(current_user)
+    redirect_to @event, notice: 'You are no longer attending this event'
+  end
+
   def destroy
     @event = current_user.events.find(params[:id])
     if @event

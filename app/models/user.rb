@@ -8,7 +8,5 @@ class User < ApplicationRecord
     has_many :attended_events, through: :event_users, source: :event, dependent: :delete_all
     
 
-    
-
     validates :username, presence: true    
 end
