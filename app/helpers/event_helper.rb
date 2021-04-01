@@ -9,7 +9,7 @@ module EventHelper
         if current_user == @event.creator
 
           (link_to 'Edit', edit_event_path) + tag("br") + 
-            (link_to 'Delete',event_path(@event.id), method: :delete, data: { confirm: 'Delete this event?' })
+            (link_to 'Delete', deletee_event_path(@event.id), method: :delete, data: { confirm: 'Delete this event?' })
 
         elsif @event.attendees.include?(current_user)
 

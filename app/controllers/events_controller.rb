@@ -57,13 +57,13 @@ class EventsController < ApplicationController
     redirect_to @event, notice: 'You are no longer attending this event'
   end
 
-  def destroy
+  def deletee
     @event = Event.find(params[:id])
     if @event
       @event.destroy
       flash[:success] = "Event removed"
     else 
-      flash[:alert] = "Event removed"
+      flash[:alert] = "Event Could not be removed"
     end 
     redirect_to root_path
   end
