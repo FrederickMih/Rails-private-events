@@ -10,7 +10,9 @@
   <tbody>
     <% @event.each do |event| %>
       <tr>
+        <td><%= event.creator %></td>
         <td><%= event.description %></td>
+        <td><%= event.date %></td>
       </tr>
     <% end %>
         

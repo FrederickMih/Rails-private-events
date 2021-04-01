@@ -5,11 +5,12 @@ class Event < ApplicationRecord
     validates :description, presence: true
     validates :date, presence: true
     
-
-    
     has_many :event_users
 
     has_many :attendees, through: :event_users, source: :user, dependent: :delete_all
+
+    scope :past, -> { where('date < ?', Date.today) }
+    scope :upcoming, -> { where('date >= ?', Date.today) }
 
     
     
