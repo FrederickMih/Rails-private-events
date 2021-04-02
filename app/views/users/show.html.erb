@@ -13,16 +13,17 @@
   <br><br>
   <% @all_events = @user.events %>
   <% @all_events.each do |e| %>
-    <%= e.description %>
+    <%= e.description %> <br>
   <% end %>
 <% end %>
+
 
 <h3> Upcoming Events <h3>
  <% @user.attended_events.upcoming.each do |event| %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.date %></td>
+        <td><%= event.date %></td><br>
       </tr>
   <% end %>
 
@@ -31,16 +32,8 @@
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.date %></td>
+        <td><%= event.date %></td><br>
       </tr>
   <% end %>
 
-
-
-
-<% %>
-<% %>
-<% %>
-<% %>
-<% %>
 

@@ -1,6 +1,4 @@
 class Event < ApplicationRecord
-
-    # belongs_to :user
     belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
     validates :description, presence: true
     validates :date, presence: true
@@ -12,6 +10,4 @@ class Event < ApplicationRecord
     scope :past, -> { where('date < ?', Date.today) }
     scope :upcoming, -> { where('date >= ?', Date.today) }
 
-    
-    
 end

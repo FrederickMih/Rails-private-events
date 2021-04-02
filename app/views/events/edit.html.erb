@@ -5,7 +5,18 @@
 
 <%= form_for @event do |form| %>
  
- <%# <%= render 'shared/error_messages' \%\> %>
+ <% if @event.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@event.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li class='text-danger'><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
  <%= form.label :description %>
  <%= form.text_area :description %>
