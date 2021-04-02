@@ -12,7 +12,8 @@ RSpec.describe 'User', type: :controller do
       expect(u2.valid?).to eq(false)
     end
      it 'Creates an event from a user' do
-     e1 = events.build(description: "something", date: Time.now) 
+      u1 = User.new(username: "John")
+     e1 = u1.events.build(description: "something", date: Time.now) 
       expect(e1.valid?).to eq(true)
     end
    
