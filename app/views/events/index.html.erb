@@ -8,16 +8,8 @@
 <table>
   <tbody>
     <h2>Upcoming events</h2>
-    <% @event.upcoming.each do |event| %>
-      <tr>
-        <td><%= event.creator.username%></td>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        
+    <%= upcoming_events(@event) %>
 
-      </tr>
-    <% end %>
   </tbody>
 </table>
 
@@ -25,16 +17,7 @@
 <table>
   <tbody>
     <h2>Past Events</h2>
-    <% @event.past.each do |event| %>
-      <tr class="test1">
-        <td><%= event.creator.username%></td>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        
-      </tr>
-    <% end %>
+    <%= past_events(@event) %>
   </tbody>
 </table>
 
-<br>

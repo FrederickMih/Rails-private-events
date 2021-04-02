@@ -44,13 +44,39 @@ module EventHelper
       end
   end
 
-  def output_event_errors
+  def upcoming_events(passed_events)
+    all_contents = content_tag(:br)
+    passed_events.upcoming.each do |event|
+      content = content_tag(:tr, "")
+      content << content_tag(:td, event.creator.username)
+      content << content_tag(:td, event.name)
+      content << content_tag(:td, event.description)
+      content << content_tag(:td, event.date)
+      all_contents << content
+    end
+    return all_contents
+  end
 
-    
+  def past_events(passed_events)
+    all_contents = content_tag(:br)
+    passed_events.past.each do |event|
+      content = content_tag(:tr, "")
+      content = content_tag(:td, event.creator.username)
+      content << content_tag(:td, event.name)
+      content << content_tag(:td, event.description)
+      content << content_tag(:td, event.date)
+      content << content_tag(:tr)
+      all_contents << content
+    end
+    return all_contents
+  end
+
+
+  def output_event_errors
     if @event.errors.any?
       content_tag(:div, id: 'error_explanation') +
         content_tag(:div) + 
-          content_tag(:p, `The form contains #{pluralize(@event.errors.count,"error")}`)
+          content_tag(:p, pluralize(@event.errors.count,"error"))
       @event.errors.full_messages.each do |msg|
         content_tag(:ul) + 
           content_tag(:li, msg)
