@@ -8,10 +8,16 @@ RSpec.describe 'User', type: :controller do
       expect(u1.valid?).to eq(true)
     end
     it 'does not allow creating of new User' do
-      u1 = User.new()
-      expect(u1.valid?).to eq(false)
+      u2 = User.new()
+      expect(u2.valid?).to eq(false)
     end
+     it 'Creates an event from a user' do
+     e1 = events.build(description: "something", date: Time.now) 
+      expect(e1.valid?).to eq(true)
+    end
+   
   end
+
   
 end
 
