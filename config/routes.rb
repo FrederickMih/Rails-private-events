@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :events do
     member do
       get 'deletee'
+      get 'remsession'
     end
   end
+
 
   get '/sign_up', to: 'users#new'
   root "users#index"

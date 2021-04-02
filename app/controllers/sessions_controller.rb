@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    puts "\nARRIVED AT THE DESTROY\n"
     log_out
     redirect_to root_url
   end

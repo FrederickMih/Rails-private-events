@@ -7,7 +7,7 @@
   
     <% if logged_in? %>
     <ul>
-      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+      <li><%= link_to "Log out", remsession_event_path(1), method: :delete %></li>
     </ul>
     <% else %>
     <ul>

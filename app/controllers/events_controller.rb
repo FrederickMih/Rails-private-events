@@ -68,6 +68,12 @@ class EventsController < ApplicationController
     redirect_to root_path
   end
 
+  def remsession
+    puts "\nARRIVED AT THE DESTROY\n"
+    log_out
+    redirect_to root_url
+  end
+
   private
 
   def event_params
