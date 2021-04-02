@@ -1,7 +1,9 @@
 # WE NEED TO CHANGE THIS LATER
 
-# Members-only Project
- This project consist of building a twitter-like social application, where sign-in users can create posts, and anyone can see these posts. However, you have to be logged in to see who created the post.
+# Private Event
+ This project consist of building a Private Event platform which allow visitor to sign up as a user, create one or many events, attend to
+ an event, edit and delete delete upcoming events.
+
 
 ![Screenshot1](./app/assets/images/screenshot.JPG)
 ![Screenshot1](./app/assets/images/screenshot2.JPG)
@@ -11,13 +13,15 @@
 2. Frameworks: Ruby on Rails
 
 ## Instructions
-1. Download a clone locally git clone https://https://github.com/AymanJabr/Members-Only-Rails
-2. Enter the project folder cd members-only
-3. Enter the proper branch `git checkout feature/members-only`, or `git checkout development`
+1. Download a clone locally git clone https://github.com/FrederickMih/Rails-private-events
+2. Enter the project folder cd Rails-private-events
+3. Enter the proper branch `git checkout feature/events-private`, or `git checkout development`
 4. Add the necessary gems required in the Gemfile
 5. Run bin/yarn install, in order to prevent `Webpacker::Manifest::MissingEntryError in Devise::Sessions#new` error
 6. Install the necessary gems by using the command 'bundle install'
 7. Migrate the database using the command 'rake db:migrate'
+8. Run `rails server`, open a browser and go to http://127.0.0.1:3000/
+9. Have fun.
 
 ## Authors :bust_in_silhouette:
 ### Frederick Mih
