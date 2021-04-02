@@ -1,13 +1,11 @@
 class SessionsController < ApplicationController
-
   include SessionsHelper
 
-    def new
-    end
+  def new; end
 
   def create
     user = User.find_by(username: params[:session][:username])
-    if user 
+    if user
       log_in user
       redirect_back_or user
     else
@@ -15,6 +13,4 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-
-
 end
