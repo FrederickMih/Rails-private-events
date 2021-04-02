@@ -57,6 +57,32 @@ module EventHelper
     return all_contents
   end
 
+  def user_upcoming_events(user)
+    all_contents = content_tag(:tr)
+    user.attended_events.upcoming.each do |event|
+      content = content_tag(:tr, "")
+      content << content_tag(:td, event.name)
+      content << content_tag(:td, event.description)
+      content << content_tag(:td, event.date)
+      content << content_tag(:br)
+      all_contents << content
+    end
+    return all_contents
+  end
+
+  def user_past_events(user)
+    all_contents = content_tag(:tr)
+    user.attended_events.past.each do |event|
+      content = content_tag(:tr, "")
+      content << content_tag(:td, event.name)
+      content << content_tag(:td, event.description)
+      content << content_tag(:td, event.date)
+      content << content_tag(:br)
+      all_contents << content
+    end
+    return all_contents
+  end
+
   def past_events(passed_events)
     all_contents = content_tag(:br)
     passed_events.past.each do |event|
@@ -69,6 +95,33 @@ module EventHelper
       all_contents << content
     end
     return all_contents
+  end
+
+  def output_user_errors(user)
+    if user.errors.any?
+      content_tag(:div, id: 'error_explanation') +
+        content_tag(:div) + 
+          content_tag(:p, pluralize(user.errors.count,"error"))
+      user.errors.full_messages.each do |msg|
+        content_tag(:ul) + 
+          content_tag(:li, msg)
+      end
+    end
+  end
+
+  def show_user_created_events(user)
+    all_contents  = content_tag(:br)
+    if user.events.empty?
+      all_contents << content_tag(:h3, "#{user.username} Dind't make any events")
+    else
+      all_contents << content_tag(:h3, "Number of events made: #{@user.events.size}")
+      all_events = user.events
+      all_events.each do |e|
+        all_contents << content_tag(:p, e.description)
+      end
+    end
+    return all_contents
+
   end
 
 
