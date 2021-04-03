@@ -140,6 +140,19 @@ module EventHelper
       end
     end
   end
+
+def show_status(current_user)
+    if logged_in?
+      if @event.creator == current_user
+        
+      elsif @event.attendees.include?(current_user)
+        
+      else
+        (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
+      end
+    end
+  end
+
 end
 # rubocop:enable Metrics/ModuleLength
 # rubocop:enable Lint/UselessAssignment

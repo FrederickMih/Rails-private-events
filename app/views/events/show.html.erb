@@ -1,8 +1,30 @@
-<%= link_to 'New Event', new_event_path %>
-<br>
-<br>
-<p> <%= event_option %> </p>
 
+<section>
+<p>Event Organiser: <strong><%= @event.creator.username.upcase!%></strong></p>
+<p>Number of Attendees: <%= @event.attendees.count %></p>
+
+</div>
+</section>
+
+<section>
+<article>
+  <p>
+    <h2> Event: </h2>
+    <%= @event.description %>
+  </p><br>   
+      <%= show_status(current_user) %> 
+  <a>
+    <p> <%= @event.description %> | <%= @event.date %> </p>
+  </a>
+</article>
+
+<article>
+  <h1>List of Attendees</h1>
+    <% @event.attendees.each do |attendee|%>
+    <span><%= attendee.username %></span>
+    <% end %>
+</article>
+</section>
 
 
 
