@@ -54,7 +54,7 @@ module EventHelper
     all_contents = content_tag(:br)
     passed_events.upcoming.each do |event|
       content = content_tag(:tr, '')
-      content << content_tag(:td, event.creator.username)
+      # content << content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
       content << content_tag(:td, event.date)
@@ -93,7 +93,7 @@ module EventHelper
     all_contents = content_tag(:br)
     passed_events.past.each do |event|
       content = content_tag(:tr, '')
-      content = content_tag(:td, event.creator.username)
+      # content = content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
       content << content_tag(:td, event.date)
