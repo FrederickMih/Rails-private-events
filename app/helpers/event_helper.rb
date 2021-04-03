@@ -57,7 +57,7 @@ module EventHelper
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
       content << content_tag(:td, event.date)
-      content << content_tag(:td,(link_to 'See Event', event_path(event.id)))
+      content << content_tag(:td, (link_to 'See Event', event_path(event.id)))
       content << content_tag(:tr)
       all_contents << content
     end
