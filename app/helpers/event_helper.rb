@@ -1,5 +1,4 @@
 # rubocop:disable Metrics/ModuleLength
-# rubocop:disable Lint/UselessAssignment
 # rubocop:disable Style/GuardClause
 # rubocop:disable Lint/Void
 
@@ -50,11 +49,11 @@ module EventHelper
       end
   end
 
-  def upcoming_events(passed_events)
+  def upcoming_events
     all_contents = content_tag(:br)
-    passed_events.upcoming.each do |event|
+    @upcoming_events.each do |event|
       content = content_tag(:tr, '')
-      # content << content_tag(:td, event.creator.username)
+      content << content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
       content << content_tag(:td, event.date)
@@ -89,11 +88,11 @@ module EventHelper
     all_contents
   end
 
-  def past_events(passed_events)
+  def past_events
     all_contents = content_tag(:br)
-    passed_events.past.each do |event|
+    @past_events.each do |event|
       content = content_tag(:tr, '')
-      # content = content_tag(:td, event.creator.username)
+      content = content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
       content << content_tag(:td, event.date)
@@ -129,6 +128,24 @@ module EventHelper
     all_contents
   end
 
+  def show_all_attendees
+    all_contents = content_tag(:p, "")
+    @event.attendees.each do |attendee|
+      all_contents << content_tag(:span, attendee.username)
+      all_contents << content_tag(:br)
+    end
+    return all_contents
+  end
+
+  def show_all_users(users)
+    all_contents = content_tag(:p, "")
+    users.each do |user|
+      all_contents << content_tag(:span, user.username)
+      all_contents << content_tag(:br)
+    end
+    return all_contents
+  end
+
   def output_event_errors
     if @event.errors.any?
       content_tag(:div, id: 'error_explanation') +
@@ -141,20 +158,19 @@ module EventHelper
     end
   end
 
-def show_status(current_user)
-    if logged_in?
-      if @event.creator == current_user
+# def show_status(current_user)
+#     if logged_in?
+#       if @event.creator == current_user
         
-      elsif @event.attendees.include?(current_user)
+#       elsif @event.attendees.include?(current_user)
         
-      else
-        (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
-      end
-    end
-  end
+#       else
+#         (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
+#       end
+#     end
+#   end
 
 end
 # rubocop:enable Metrics/ModuleLength
-# rubocop:enable Lint/UselessAssignment
 # rubocop:enable Style/GuardClause
 # rubocop:enable Lint/Void

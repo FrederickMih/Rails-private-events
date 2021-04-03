@@ -18,11 +18,11 @@
   </a>
 </article>
 
+<p> <%= event_option %> </p>
+
 <article>
   <h1>List of Attendees</h1>
-    <% @event.attendees.each do |attendee|%>
-    <span><%= attendee.username %></span>
-    <% end %>
+    <%= show_all_attendees%>
 </article>
 </section>
 

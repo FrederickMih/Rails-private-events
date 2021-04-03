@@ -10,12 +10,7 @@
   </thead>
 
   <tbody>
-    <% @user.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-      </tr>
-    <% end %>
-        
+  <%= show_all_users(@user)%>        
         
   </tbody>
 </table>
