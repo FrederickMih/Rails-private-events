@@ -1,7 +1,7 @@
 <%= form_for @user do |form| %>
  
 
-<%= output_user_errors %>
+<%= output_user_errors(@user) %>
 
  <%= form.label :username %>
  <%= form.text_field :username %>

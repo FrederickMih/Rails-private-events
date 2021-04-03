@@ -49,6 +49,21 @@ module EventHelper
       end
   end
 
+  def all_events_links(events)
+    all_contents = content_tag(:br)
+    events.each do |event|
+      content = content_tag(:tr, '')
+      content << content_tag(:td, event.creator.username)
+      content << content_tag(:td, event.name)
+      content << content_tag(:td, event.description)
+      content << content_tag(:td, event.date)
+      content << content_tag(:td,(link_to 'See Event', event_path(event.id)))
+      content << content_tag(:tr)
+      all_contents << content
+    end
+    all_contents
+  end
+
   def upcoming_events(passed_events)
     all_contents = content_tag(:br)
     passed_events.upcoming.each do |event|
@@ -57,6 +72,19 @@ module EventHelper
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
       content << content_tag(:td, event.date)
+      all_contents << content
+    end
+    all_contents
+  end
+
+  def past_events(passed_events)
+    all_contents = content_tag(:br)
+    passed_events.past.each do |event|
+      content = content_tag(:td, event.creator.username)
+      content << content_tag(:td, event.name)
+      content << content_tag(:td, event.description)
+      content << content_tag(:td, event.date)
+      content << content_tag(:tr)
       all_contents << content
     end
     all_contents
@@ -83,19 +111,6 @@ module EventHelper
       content << content_tag(:td, event.description)
       content << content_tag(:td, event.date)
       content << content_tag(:br)
-      all_contents << content
-    end
-    all_contents
-  end
-
-  def past_events(passed_events)
-    all_contents = content_tag(:br)
-    passed_events.past.each do |event|
-      content = content_tag(:td, event.creator.username)
-      content << content_tag(:td, event.name)
-      content << content_tag(:td, event.description)
-      content << content_tag(:td, event.date)
-      content << content_tag(:tr)
       all_contents << content
     end
     all_contents
