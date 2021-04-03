@@ -46,5 +46,4 @@ RSpec.describe 'Integration:', type: :system do
       expect(page).to have_content('New Event')
     end
   end
-
 end

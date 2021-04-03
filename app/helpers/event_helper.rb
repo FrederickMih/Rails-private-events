@@ -142,7 +142,7 @@ module EventHelper
       all_contents << content_tag(:span, user.username)
       all_contents << content_tag(:br)
     end
-    return all_contents
+    all_contents
   end
 
   def show_status(current_user)
