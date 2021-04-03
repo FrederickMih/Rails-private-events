@@ -91,7 +91,6 @@ module EventHelper
   def past_events(passed_events)
     all_contents = content_tag(:br)
     passed_events.past.each do |event|
-      content = content_tag(:tr, '')
       content = content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
@@ -129,12 +128,12 @@ module EventHelper
   end
 
   def show_all_attendees
-    all_contents = content_tag(:p, "")
+    all_contents = content_tag(:p, '')
     @event.attendees.each do |attendee|
       all_contents << content_tag(:span, attendee.username)
       all_contents << content_tag(:br)
     end
-    return all_contents
+    all_contents
   end
 
   def show_all_users(users)
@@ -153,7 +152,7 @@ module EventHelper
       elsif @event.attendees.include?(current_user)
 
       else
-        return (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
+        (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
       end
     end
   end
@@ -169,7 +168,6 @@ module EventHelper
       end
     end
   end
-
 end
 # rubocop:enable Metrics/ModuleLength
 # rubocop:enable Style/GuardClause
