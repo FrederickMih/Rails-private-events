@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_04_01_120851) do
 
   create_table "event_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "event_id"
+    t.integer "user_id", index: true
+    t.integer "event_id", index: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

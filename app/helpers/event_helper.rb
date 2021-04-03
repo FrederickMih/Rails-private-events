@@ -49,9 +49,9 @@ module EventHelper
       end
   end
 
-  def upcoming_events
+  def upcoming_events(passed_events)
     all_contents = content_tag(:br)
-    @upcoming_events.each do |event|
+    passed_events.upcoming.each do |event|
       content = content_tag(:tr, '')
       content << content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
@@ -88,9 +88,9 @@ module EventHelper
     all_contents
   end
 
-  def past_events
+  def past_events(passed_events)
     all_contents = content_tag(:br)
-    @past_events.each do |event|
+    passed_events.past.each do |event|
       content = content_tag(:tr, '')
       content = content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
@@ -146,6 +146,18 @@ module EventHelper
     return all_contents
   end
 
+  def show_status(current_user)
+    if logged_in?
+      if @event.creator == current_user
+
+      elsif @event.attendees.include?(current_user)
+
+      else
+        return (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
+      end
+    end
+  end
+
   def output_event_errors
     if @event.errors.any?
       content_tag(:div, id: 'error_explanation') +
@@ -157,18 +169,6 @@ module EventHelper
       end
     end
   end
-
-# def show_status(current_user)
-#     if logged_in?
-#       if @event.creator == current_user
-        
-#       elsif @event.attendees.include?(current_user)
-        
-#       else
-#         (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
-#       end
-#     end
-#   end
 
 end
 # rubocop:enable Metrics/ModuleLength
