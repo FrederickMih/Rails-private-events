@@ -137,7 +137,7 @@ module EventHelper
   end
 
   def show_all_users(users)
-    all_contents = content_tag(:p, "")
+    all_contents = content_tag(:p, '')
     users.each do |user|
       all_contents << content_tag(:span, user.username)
       all_contents << content_tag(:br)
