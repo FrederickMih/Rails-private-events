@@ -1,0 +1,18 @@
+<h1>Editing Event</h1>
+
+<%= link_to 'Show', @event %> <br>
+<%= link_to 'Back', events_path %>
+
+<%= form_for @event do |form| %>
+ 
+ <%= output_event_errors %>
+
+ <%= form.label :description %>
+ <%= form.text_area :description %>
+  <%= tag(:br) %>
+  <%= tag(:br) %>
+   <%= form.label :date %>
+ <%= form.date_field :date %>
+ <%= form.submit  %>
+<% end %>
+

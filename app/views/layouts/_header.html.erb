@@ -1,0 +1,23 @@
+<nav> 
+  <div>
+
+   <div>
+      <br>
+      <br>
+      <br>
+      <%= link_to "All User events", events_path %>
+    </div>
+  
+    <% if logged_in? %>
+    <ul>
+      <li><%= link_to "Log out", remsession_event_path(1), method: :delete %></li>
+      <li><%= link_to "Home", user_path(current_user.id) %></li>
+    </ul>
+    <% else %>
+    <ul>
+        <li><%= link_to "Log in", login_path %></li> 
+        <li><%= link_to "Sign up", sign_up_path %></li>
+      </ul>
+      <% end %>
+  </div>
+</nav>

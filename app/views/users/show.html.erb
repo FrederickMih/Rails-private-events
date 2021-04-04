@@ -1,0 +1,19 @@
+<%= link_to 'New Event', new_event_path %> <br>
+<%= link_to 'New User', new_user_path %>
+<br>
+<br>
+
+<h1>User <%= @user.id %> <%= @user.username %></h1> 
+
+
+<%= show_user_created_events(@user)%>
+
+
+<h3> Upcoming Events </h3>
+<%= user_upcoming_events(@user)%>
+
+
+<h3> Past Events </h3>
+<%= user_past_events(@user)%>
+
+
