@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_120851) do
     t.string "category"
     t.string "location"
     t.date "date"
-    t.integer "user_id"
+    t.integer "user_id", index: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"

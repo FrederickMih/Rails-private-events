@@ -6,9 +6,9 @@ RSpec.describe 'Integration:', type: :system do
       visit events_path
       expect(page).not_to have_content('something very weird')
     end
-    it 'confirms presence of All events' do
+    it 'confirms presence of All User events' do
       visit events_path
-      expect(page).to have_content('All events')
+      expect(page).to have_content('All User events')
     end
     it 'confirms presence of Log in' do
       visit events_path

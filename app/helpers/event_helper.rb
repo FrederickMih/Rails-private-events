@@ -65,9 +65,10 @@ module EventHelper
     all_contents
   end
 
-  def upcoming_events(passed_events)
+  def upcoming_events
     all_contents = content_tag(:br)
-    passed_events.upcoming.each do |event|
+    @upcoming_events = Event.upcoming
+    @upcoming_events.each do |event|
       content = content_tag(:tr, '')
       content << content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
@@ -78,9 +79,10 @@ module EventHelper
     all_contents
   end
 
-  def past_events(passed_events)
+  def past_events
     all_contents = content_tag(:br)
-    passed_events.past.each do |event|
+    @past_events = Event.past
+    @past_events.each do |event|
       content = content_tag(:td, event.creator.username)
       content << content_tag(:td, event.name)
       content << content_tag(:td, event.description)
