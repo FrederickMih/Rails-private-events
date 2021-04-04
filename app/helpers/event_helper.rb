@@ -163,11 +163,13 @@ module EventHelper
   def show_status(current_user)
     if logged_in?
       if @event.creator == current_user
-
+        (link_to 'Edit', edit_event_path) + tag('br') +
+            (link_to 'Delete', deletee_event_path(@event.id), method: :delete,
+                                                              data: { confirm: 'Delete this event?' })
       elsif @event.attendees.include?(current_user)
-
+        (link_to 'Remove event', cancel_visitor_event_path)
       else
-        (button_to 'Attend', attend_event_path, method: :get).to_s.html_safe
+        (link_to 'Want to Join --- Go ', visitor_event_path unless @event.date < Time.now)
       end
     end
   end
