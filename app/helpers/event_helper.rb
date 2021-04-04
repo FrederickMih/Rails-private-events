@@ -1,6 +1,7 @@
 # rubocop:disable Metrics/ModuleLength
 # rubocop:disable Style/GuardClause
 # rubocop:disable Lint/Void
+# rubocop:disable Layout/MultilineOperationIndentation
 
 module EventHelper
   def event_option
@@ -188,3 +189,4 @@ end
 # rubocop:enable Metrics/ModuleLength
 # rubocop:enable Style/GuardClause
 # rubocop:enable Lint/Void
+# rubocop:enable Layout/MultilineOperationIndentation
